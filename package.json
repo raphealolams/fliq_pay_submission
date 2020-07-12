@@ -1,0 +1,48 @@
+{
+  "name": "fliqpay",
+  "version": "1.0.0",
+  "description": "A Customer support ticketing system. The system allows customers to be able to place support requests and support agents to process the request.",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "cypress:open": "cypress open",
+    "dev": "nodemon index.js",
+    "drop": "mongo fliq_pay --eval 'db.users.drop()' && mongo fliq_pay --eval 'db.tickets.drop()'",
+    "export:data": "mongodump -h localhost -p 27017 -d fliq_pay -o seeders",
+    "export:json": "mongoexport -h localhost -p 27017 -d fliq_pay -c users -o data/users.json --jsonArray  --pretty && mongoexport -h localhost -p 27017 -d fliq_pay -c tickets -o data/tickets.json --jsonArray  --pretty",
+    "import:data": "mongorestore -h localhost -p 27017 -d fliq_pay --dir=./seeders/fliq_pay",
+    "start": "node index.js",
+    "test": "mocha test/**/*.js",
+    "test-watch": "mocha **/**/*.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "await-to-js": "^2.1.1",
+    "base-64": "^0.1.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "events": "^3.1.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.21",
+    "pdfmake": "^0.1.66",
+    "swagger-ui-express": "^4.1.4",
+    "utf8": "^3.0.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "cypress": "^4.10.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.4",
+    "should": "^13.2.3"
+  }
+}

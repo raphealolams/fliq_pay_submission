@@ -1,0 +1,2432 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Fliq Pay Test",
+    "contact": {}
+  },
+  "host": "localhost:3010",
+  "basePath": "/v1",
+  "securityDefinitions": {},
+  "schemes": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/users/delete": {
+      "delete": {
+        "description": "delete a user",
+        "summary": "Delete User",
+        "tags": ["Users"],
+        "operationId": "DeleteUser",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteUser"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "success",
+                "data": {
+                  "message": "user successfully deleted",
+                  "deletedUser": [0]
+                }
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Thu, 19 Mar 2020 09:28:17 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/me": {
+      "get": {
+        "description": "Returns User Details",
+        "summary": "Me",
+        "tags": ["Users"],
+        "operationId": "Me",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Me"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "user fetched",
+                "data": {
+                  "role": "user",
+                  "createdAt": "2020-07-06T20:34:39.779Z",
+                  "_id": "5f038b1cf5260e5613bed73f",
+                  "firstName": "Raphael",
+                  "lastName": "Ajilore",
+                  "email": "raphealolams@gmail.com"
+                }
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Mon, 06 Jul 2020 20:58:40 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "description": "returns all user's saved on the system",
+        "summary": "Get All Users",
+        "tags": ["Users"],
+        "operationId": "GetAllUsers",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": "default 1"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": "default 10"
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "asc || desc"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetAllUsers"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "users fetched",
+                "data": [
+                  {
+                    "role": "user",
+                    "active": true,
+                    "_id": "5f038b1cf5260e5613bed73f",
+                    "firstName": "Raphael",
+                    "lastName": "Ajilore",
+                    "email": "raphealolams@gmail.com"
+                  },
+                  {
+                    "role": "user",
+                    "active": true,
+                    "_id": "5f03981a29984b5e4c748ab1",
+                    "firstName": "Raphael",
+                    "lastName": "Ajilore",
+                    "email": "raphealolams@yahoo.com"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 10 Jul 2020 09:05:21 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "description": "login handles authentication, essentially the user is required to validate their identity by providing it's email and password",
+        "summary": "Login",
+        "tags": ["Users"],
+        "operationId": "Login",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "login successful",
+                "data": {
+                  "role": "user",
+                  "createdAt": "2020-07-06T20:34:39.779Z",
+                  "_id": "5f038b1cf5260e5613bed73f",
+                  "firstName": "Raphael",
+                  "lastName": "Ajilore",
+                  "email": "raphealolams@gmail.com",
+                  "__v": 0,
+                  "bearerToken": "Bearer ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmtZWFJoSWpwN0luVnpaWEpKWkNJNklqVm1NRE00WWpGalpqVXlOakJsTlRZeE0ySmxaRGN6WmlJc0ltVnRZV2xzSWpvaWNtRndhR1ZoYkc5c1lXMXpRR2R0WVdsc0xtTnZiU0lzSW5KdmJHVWlPaUoxYzJWeUluMHNJbWxoZENJNk1UVTVOREEyTnprMU9Td2laWGh3SWpveE5UazBNVFUwTXpVNWZRLll0QzdqMlNBLVgtMTJCVUFMZlVEWGZUcEFEZEIyNFF5dWFrcE1DZ2JDSzg=",
+                  "expiresIn": "24h"
+                }
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Mon, 06 Jul 2020 20:39:19 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/register": {
+      "post": {
+        "description": "Handler for user registration",
+        "summary": "Register",
+        "tags": ["Users"],
+        "operationId": "Register",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegisterRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "login successful",
+                "data": {
+                  "role": "user",
+                  "createdAt": "2020-07-06T20:34:39.779Z",
+                  "_id": "5f038b1cf5260e5613bed73f",
+                  "firstName": "Raphael",
+                  "lastName": "Ajilore",
+                  "email": "raphealolams@gmail.com",
+                  "__v": 0,
+                  "bearerToken": "Bearer ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmtZWFJoSWpwN0luVnpaWEpKWkNJNklqVm1NRE00WWpGalpqVXlOakJsTlRZeE0ySmxaRGN6WmlJc0ltVnRZV2xzSWpvaWNtRndhR1ZoYkc5c1lXMXpRR2R0WVdsc0xtTnZiU0lzSW5KdmJHVWlPaUoxYzJWeUluMHNJbWxoZENJNk1UVTVOREEyTnprMU9Td2laWGh3SWpveE5UazBNVFUwTXpVNWZRLll0QzdqMlNBLVgtMTJCVUFMZlVEWGZUcEFEZEIyNFF5dWFrcE1DZ2JDSzg=",
+                  "expiresIn": "24h"
+                }
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Mon, 06 Jul 2020 20:39:19 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/getTickets": {
+      "get": {
+        "description": "returns all tickets saved on the system",
+        "summary": "Get Tickets",
+        "tags": ["Ticket"],
+        "operationId": "GetTickets",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetTickets"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "tickets fetched",
+                "data": [
+                  {
+                    "status": "open",
+                    "_id": "5f08487e9a4f3223a54057d1",
+                    "title": "Super Human",
+                    "description": "Human with all the abilities",
+                    "tag": "tag-787704",
+                    "userId": {
+                      "firstName": "Raphael",
+                      "lastName": "Ajilore"
+                    },
+                    "comments": [
+                      {
+                        "senderType": "admin",
+                        "_id": "5f0863f2bc3d4d2fa95dfa2d",
+                        "comment": "shit happens",
+                        "userId": {
+                          "firstName": "Raphael",
+                          "lastName": "Ajilore"
+                        }
+                      },
+                      {
+                        "senderType": "admin",
+                        "_id": "5f08640533c4f32fca8ed3b2",
+                        "comment": "shit happens",
+                        "userId": {
+                          "firstName": "Raphael",
+                          "lastName": "Ajilore"
+                        }
+                      }
+                    ],
+                    "__v": 0
+                  },
+                  {
+                    "status": "open",
+                    "_id": "5f085edfec1dac2850f29ad7",
+                    "title": "Super Human",
+                    "description": "Human with all the abilities",
+                    "tag": "tag-444488",
+                    "userId": {
+                      "firstName": "Raphael",
+                      "lastName": "Ajilore"
+                    },
+                    "comments": [],
+                    "__v": 0
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 10 Jul 2020 13:14:52 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/getTicket": {
+      "get": {
+        "description": "Used by admin or support agent\nThis endpoints returns tickets for a user",
+        "summary": "Get Ticket",
+        "tags": ["Ticket"],
+        "operationId": "GetTicket",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "ticketId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetTicket"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "tickets fetch",
+                "data": {
+                  "status": "open",
+                  "_id": "5f08487e9a4f3223a54057d1",
+                  "title": "Super Human",
+                  "description": "Human with all the abilities",
+                  "tag": "tag-787704",
+                  "userId": {
+                    "firstName": "Raphael",
+                    "lastName": "Ajilore"
+                  },
+                  "comments": [
+                    {
+                      "senderType": "admin",
+                      "_id": "5f0863f2bc3d4d2fa95dfa2d",
+                      "comment": "shit happens",
+                      "userId": {
+                        "firstName": "Raphael",
+                        "lastName": "Ajilore"
+                      }
+                    },
+                    {
+                      "senderType": "admin",
+                      "_id": "5f08640533c4f32fca8ed3b2",
+                      "comment": "shit happens",
+                      "userId": {
+                        "firstName": "Raphael",
+                        "lastName": "Ajilore"
+                      }
+                    }
+                  ],
+                  "__v": 0
+                }
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 10 Jul 2020 13:16:23 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/user": {
+      "get": {
+        "summary": "Get Tickets by User",
+        "tags": ["Ticket"],
+        "operationId": "GetTicketsbyUser",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetTicketsbyUser"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "tickets fetch",
+                "data": [
+                  {
+                    "status": "open",
+                    "_id": "5f086fb9523e13364115231b",
+                    "title": "Super Human",
+                    "description": "Human with all the abilities",
+                    "tag": "tag-608057",
+                    "userId": {
+                      "_id": "5f038b1cf5260e5613bed73f",
+                      "firstName": "Raphael",
+                      "lastName": "Ajilore"
+                    },
+                    "comments": [],
+                    "__v": 0
+                  },
+                  {
+                    "status": "open",
+                    "_id": "5f086fc9523e13364115231c",
+                    "title": "Super Human Testing",
+                    "description": "Human with all the abilities",
+                    "tag": "tag-700772",
+                    "userId": {
+                      "_id": "5f038b1cf5260e5613bed73f",
+                      "firstName": "Raphael",
+                      "lastName": "Ajilore"
+                    },
+                    "comments": [],
+                    "__v": 0
+                  },
+                  {
+                    "status": "open",
+                    "_id": "5f086fde523e13364115231d",
+                    "title": "I can't access my deezer app",
+                    "description": "Human with all the abilities",
+                    "tag": "tag-974301",
+                    "userId": {
+                      "_id": "5f038b1cf5260e5613bed73f",
+                      "firstName": "Raphael",
+                      "lastName": "Ajilore"
+                    },
+                    "comments": [],
+                    "__v": 0
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 10 Jul 2020 13:53:20 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/me": {
+      "get": {
+        "description": "This endpoints returns tickets for a user (customer)  if and only if the customer is logged in",
+        "summary": "Get My Tickets",
+        "tags": ["Ticket"],
+        "operationId": "GetMyTickets",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetMyTickets"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "success",
+                "data": {
+                  "message": "tickets fetch",
+                  "tickets": [
+                    {
+                      "id": "6406c342-a0d0-4936-a20c-71b84ad3a011",
+                      "title": "is required",
+                      "description": "is required",
+                      "status": "closed",
+                      "userId": "bf174099-620d-4162-af72-562400459dc1",
+                      "tag": "tag-572958",
+                      "createdAt": "2020-03-19T13:34:02Z",
+                      "updatedAt": "2020-03-19T16:26:07Z"
+                    }
+                  ],
+                  "count": 1
+                }
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Thu, 19 Mar 2020 16:35:58 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/report": {
+      "get": {
+        "description": "Returns List of closed tickets in the last 30 days",
+        "summary": "Get Ticket Report",
+        "tags": ["Ticket"],
+        "operationId": "GetTicketReport",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/tickets/create": {
+      "post": {
+        "description": "Allows User(Customer to create Ticket)",
+        "summary": "Create Ticket",
+        "tags": ["Ticket"],
+        "operationId": "CreateTicket",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateTicketRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateTicket"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 201,
+                "message": "success",
+                "data": {
+                  "message": "ticket successfully created",
+                  "ticket": {
+                    "id": "7668c643-83f1-4662-8388-1d62c0bf4f9d",
+                    "status": "open",
+                    "title": "is required",
+                    "description": "is required",
+                    "tag": "tag-796052",
+                    "userId": "8671e3b1-a377-48fd-a9bd-c5854566138d",
+                    "updatedAt": "2020-03-19T10:50:43.457Z",
+                    "createdAt": "2020-03-19T10:50:43.457Z"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Thu, 19 Mar 2020 10:50:43 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/closeATicket": {
+      "put": {
+        "description": "close a ticket",
+        "summary": "Close Ticket",
+        "tags": ["Ticket"],
+        "operationId": "CloseTicket",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CloseTicketRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CloseTicket"
+            },
+            "examples": {
+              "application/json": {
+                "error": false,
+                "code": 200,
+                "message": "success",
+                "data": {
+                  "message": "ticket closed",
+                  "ticket": [1]
+                }
+              }
+            },
+            "headers": {
+              "X-DNS-Prefetch-Control": {
+                "type": "string",
+                "default": "off"
+              },
+              "X-Frame-Options": {
+                "type": "string",
+                "default": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "type": "string",
+                "default": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "type": "string",
+                "default": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "type": "string",
+                "default": "nosniff"
+              },
+              "X-XSS-Protection": {
+                "type": "string",
+                "default": "1; mode=block"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Thu, 19 Mar 2020 16:26:07 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments/create": {
+      "post": {
+        "description": "This endpoint creates comments",
+        "summary": "Create Comment",
+        "tags": ["Comment"],
+        "operationId": "CreateComment",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateCommentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "schema": {
+              "$ref": "#/definitions/CreateComment"
+            },
+            "examples": {
+              "application/json": {
+                "error": true,
+                "code": 422,
+                "message": "failure",
+                "data": {
+                  "message": "You cannot comment on this ticket unless a support agent does"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DeleteUserRequest": {
+      "title": "DeleteUserRequest",
+      "example": {
+        "email": "raphealolams@outlook.com"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": ["email"]
+    },
+    "DeleteUser": {
+      "title": "DeleteUser",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "success",
+        "data": {
+          "message": "user successfully deleted",
+          "deletedUser": [0]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data": {
+      "title": "Data",
+      "example": {
+        "message": "user successfully deleted",
+        "deletedUser": [0]
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "deletedUser": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "required": ["message", "deletedUser"]
+    },
+    "Me": {
+      "title": "Me",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "user fetched",
+        "data": {
+          "role": "user",
+          "createdAt": "2020-07-06T20:34:39.779Z",
+          "_id": "5f038b1cf5260e5613bed73f",
+          "firstName": "Raphael",
+          "lastName": "Ajilore",
+          "email": "raphealolams@gmail.com"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data1"
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data1": {
+      "title": "Data1",
+      "example": {
+        "role": "user",
+        "createdAt": "2020-07-06T20:34:39.779Z",
+        "_id": "5f038b1cf5260e5613bed73f",
+        "firstName": "Raphael",
+        "lastName": "Ajilore",
+        "email": "raphealolams@gmail.com"
+      },
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": ["role", "createdAt", "_id", "firstName", "lastName", "email"]
+    },
+    "GetAllUsers": {
+      "title": "GetAllUsers",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "users fetched",
+        "data": [
+          {
+            "role": "user",
+            "active": true,
+            "_id": "5f038b1cf5260e5613bed73f",
+            "firstName": "Raphael",
+            "lastName": "Ajilore",
+            "email": "raphealolams@gmail.com"
+          },
+          {
+            "role": "user",
+            "active": true,
+            "_id": "5f03981a29984b5e4c748ab1",
+            "firstName": "Raphael",
+            "lastName": "Ajilore",
+            "email": "raphealolams@yahoo.com"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Data2"
+          }
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data2": {
+      "title": "Data2",
+      "example": {
+        "role": "user",
+        "active": true,
+        "_id": "5f038b1cf5260e5613bed73f",
+        "firstName": "Raphael",
+        "lastName": "Ajilore",
+        "email": "raphealolams@gmail.com"
+      },
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": ["role", "active", "_id", "firstName", "lastName", "email"]
+    },
+    "LoginRequest": {
+      "title": "LoginRequest",
+      "example": {
+        "email": "raphealolams@gmail.com",
+        "password": "wemove"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": ["email", "password"]
+    },
+    "Login": {
+      "title": "Login",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "login successful",
+        "data": {
+          "role": "user",
+          "createdAt": "2020-07-06T20:34:39.779Z",
+          "_id": "5f038b1cf5260e5613bed73f",
+          "firstName": "Raphael",
+          "lastName": "Ajilore",
+          "email": "raphealolams@gmail.com",
+          "__v": 0,
+          "bearerToken": "Bearer ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmtZWFJoSWpwN0luVnpaWEpKWkNJNklqVm1NRE00WWpGalpqVXlOakJsTlRZeE0ySmxaRGN6WmlJc0ltVnRZV2xzSWpvaWNtRndhR1ZoYkc5c1lXMXpRR2R0WVdsc0xtTnZiU0lzSW5KdmJHVWlPaUoxYzJWeUluMHNJbWxoZENJNk1UVTVOREEyTnprMU9Td2laWGh3SWpveE5UazBNVFUwTXpVNWZRLll0QzdqMlNBLVgtMTJCVUFMZlVEWGZUcEFEZEIyNFF5dWFrcE1DZ2JDSzg=",
+          "expiresIn": "24h"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data3"
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data3": {
+      "title": "Data3",
+      "example": {
+        "role": "user",
+        "createdAt": "2020-07-06T20:34:39.779Z",
+        "_id": "5f038b1cf5260e5613bed73f",
+        "firstName": "Raphael",
+        "lastName": "Ajilore",
+        "email": "raphealolams@gmail.com",
+        "__v": 0,
+        "bearerToken": "Bearer ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmtZWFJoSWpwN0luVnpaWEpKWkNJNklqVm1NRE00WWpGalpqVXlOakJsTlRZeE0ySmxaRGN6WmlJc0ltVnRZV2xzSWpvaWNtRndhR1ZoYkc5c1lXMXpRR2R0WVdsc0xtTnZiU0lzSW5KdmJHVWlPaUoxYzJWeUluMHNJbWxoZENJNk1UVTVOREEyTnprMU9Td2laWGh3SWpveE5UazBNVFUwTXpVNWZRLll0QzdqMlNBLVgtMTJCVUFMZlVEWGZUcEFEZEIyNFF5dWFrcE1DZ2JDSzg=",
+        "expiresIn": "24h"
+      },
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "bearerToken": {
+          "type": "string"
+        },
+        "expiresIn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "createdAt",
+        "_id",
+        "firstName",
+        "lastName",
+        "email",
+        "__v",
+        "bearerToken",
+        "expiresIn"
+      ]
+    },
+    "RegisterRequest": {
+      "title": "RegisterRequest",
+      "example": {
+        "firstName": "Raphael",
+        "lastName": "Ajilore",
+        "email": "raphealolams@gmail.com",
+        "password": "wemove",
+        "confirmPassword": "wemove",
+        "role": "user"
+      },
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "confirmPassword": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "password",
+        "confirmPassword",
+        "role"
+      ]
+    },
+    "GetTickets": {
+      "title": "GetTickets",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "tickets fetched",
+        "data": [
+          {
+            "status": "open",
+            "_id": "5f08487e9a4f3223a54057d1",
+            "title": "Super Human",
+            "description": "Human with all the abilities",
+            "tag": "tag-787704",
+            "userId": {
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            },
+            "comments": [
+              {
+                "senderType": "admin",
+                "_id": "5f0863f2bc3d4d2fa95dfa2d",
+                "comment": "shit happens",
+                "userId": {
+                  "firstName": "Raphael",
+                  "lastName": "Ajilore"
+                }
+              },
+              {
+                "senderType": "admin",
+                "_id": "5f08640533c4f32fca8ed3b2",
+                "comment": "shit happens",
+                "userId": {
+                  "firstName": "Raphael",
+                  "lastName": "Ajilore"
+                }
+              }
+            ],
+            "__v": 0
+          },
+          {
+            "status": "open",
+            "_id": "5f085edfec1dac2850f29ad7",
+            "title": "Super Human",
+            "description": "Human with all the abilities",
+            "tag": "tag-444488",
+            "userId": {
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            },
+            "comments": [],
+            "__v": 0
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Data4"
+          }
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data4": {
+      "title": "Data4",
+      "example": {
+        "status": "open",
+        "_id": "5f08487e9a4f3223a54057d1",
+        "title": "Super Human",
+        "description": "Human with all the abilities",
+        "tag": "tag-787704",
+        "userId": {
+          "firstName": "Raphael",
+          "lastName": "Ajilore"
+        },
+        "comments": [
+          {
+            "senderType": "admin",
+            "_id": "5f0863f2bc3d4d2fa95dfa2d",
+            "comment": "shit happens",
+            "userId": {
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            }
+          },
+          {
+            "senderType": "admin",
+            "_id": "5f08640533c4f32fca8ed3b2",
+            "comment": "shit happens",
+            "userId": {
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            }
+          }
+        ],
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "userId": {
+          "$ref": "#/definitions/UserId"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "status",
+        "_id",
+        "title",
+        "description",
+        "tag",
+        "userId",
+        "comments",
+        "__v"
+      ]
+    },
+    "UserId": {
+      "title": "UserId",
+      "example": {
+        "firstName": "Raphael",
+        "lastName": "Ajilore"
+      },
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": ["firstName", "lastName"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "example": {
+        "senderType": "admin",
+        "_id": "5f0863f2bc3d4d2fa95dfa2d",
+        "comment": "shit happens",
+        "userId": {
+          "firstName": "Raphael",
+          "lastName": "Ajilore"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "senderType": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "userId": {
+          "$ref": "#/definitions/UserId"
+        }
+      }
+    },
+    "GetTicket": {
+      "title": "GetTicket",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "tickets fetch",
+        "data": {
+          "status": "open",
+          "_id": "5f08487e9a4f3223a54057d1",
+          "title": "Super Human",
+          "description": "Human with all the abilities",
+          "tag": "tag-787704",
+          "userId": {
+            "firstName": "Raphael",
+            "lastName": "Ajilore"
+          },
+          "comments": [
+            {
+              "senderType": "admin",
+              "_id": "5f0863f2bc3d4d2fa95dfa2d",
+              "comment": "shit happens",
+              "userId": {
+                "firstName": "Raphael",
+                "lastName": "Ajilore"
+              }
+            },
+            {
+              "senderType": "admin",
+              "_id": "5f08640533c4f32fca8ed3b2",
+              "comment": "shit happens",
+              "userId": {
+                "firstName": "Raphael",
+                "lastName": "Ajilore"
+              }
+            }
+          ],
+          "__v": 0
+        }
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data5"
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data5": {
+      "title": "Data5",
+      "example": {
+        "status": "open",
+        "_id": "5f08487e9a4f3223a54057d1",
+        "title": "Super Human",
+        "description": "Human with all the abilities",
+        "tag": "tag-787704",
+        "userId": {
+          "firstName": "Raphael",
+          "lastName": "Ajilore"
+        },
+        "comments": [
+          {
+            "senderType": "admin",
+            "_id": "5f0863f2bc3d4d2fa95dfa2d",
+            "comment": "shit happens",
+            "userId": {
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            }
+          },
+          {
+            "senderType": "admin",
+            "_id": "5f08640533c4f32fca8ed3b2",
+            "comment": "shit happens",
+            "userId": {
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            }
+          }
+        ],
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "userId": {
+          "$ref": "#/definitions/UserId"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment1"
+          }
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "status",
+        "_id",
+        "title",
+        "description",
+        "tag",
+        "userId",
+        "comments",
+        "__v"
+      ]
+    },
+    "Comment1": {
+      "title": "Comment1",
+      "example": {
+        "senderType": "admin",
+        "_id": "5f0863f2bc3d4d2fa95dfa2d",
+        "comment": "shit happens",
+        "userId": {
+          "firstName": "Raphael",
+          "lastName": "Ajilore"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "senderType": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "userId": {
+          "$ref": "#/definitions/UserId"
+        }
+      },
+      "required": ["senderType", "_id", "comment", "userId"]
+    },
+    "GetTicketsbyUser": {
+      "title": "GetTicketsbyUser",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "tickets fetch",
+        "data": [
+          {
+            "status": "open",
+            "_id": "5f086fb9523e13364115231b",
+            "title": "Super Human",
+            "description": "Human with all the abilities",
+            "tag": "tag-608057",
+            "userId": {
+              "_id": "5f038b1cf5260e5613bed73f",
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            },
+            "comments": [],
+            "__v": 0
+          },
+          {
+            "status": "open",
+            "_id": "5f086fc9523e13364115231c",
+            "title": "Super Human Testing",
+            "description": "Human with all the abilities",
+            "tag": "tag-700772",
+            "userId": {
+              "_id": "5f038b1cf5260e5613bed73f",
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            },
+            "comments": [],
+            "__v": 0
+          },
+          {
+            "status": "open",
+            "_id": "5f086fde523e13364115231d",
+            "title": "I can't access my deezer app",
+            "description": "Human with all the abilities",
+            "tag": "tag-974301",
+            "userId": {
+              "_id": "5f038b1cf5260e5613bed73f",
+              "firstName": "Raphael",
+              "lastName": "Ajilore"
+            },
+            "comments": [],
+            "__v": 0
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Data6"
+          }
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data6": {
+      "title": "Data6",
+      "example": {
+        "status": "open",
+        "_id": "5f086fb9523e13364115231b",
+        "title": "Super Human",
+        "description": "Human with all the abilities",
+        "tag": "tag-608057",
+        "userId": {
+          "_id": "5f038b1cf5260e5613bed73f",
+          "firstName": "Raphael",
+          "lastName": "Ajilore"
+        },
+        "comments": [],
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "userId": {
+          "$ref": "#/definitions/UserId4"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "status",
+        "_id",
+        "title",
+        "description",
+        "tag",
+        "userId",
+        "comments",
+        "__v"
+      ]
+    },
+    "UserId4": {
+      "title": "UserId4",
+      "example": {
+        "_id": "5f038b1cf5260e5613bed73f",
+        "firstName": "Raphael",
+        "lastName": "Ajilore"
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": ["_id", "firstName", "lastName"]
+    },
+    "GetMyTickets": {
+      "title": "GetMyTickets",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "success",
+        "data": {
+          "message": "tickets fetch",
+          "tickets": [
+            {
+              "id": "6406c342-a0d0-4936-a20c-71b84ad3a011",
+              "title": "is required",
+              "description": "is required",
+              "status": "closed",
+              "userId": "bf174099-620d-4162-af72-562400459dc1",
+              "tag": "tag-572958",
+              "createdAt": "2020-03-19T13:34:02Z",
+              "updatedAt": "2020-03-19T16:26:07Z"
+            }
+          ],
+          "count": 1
+        }
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data7"
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data7": {
+      "title": "Data7",
+      "example": {
+        "message": "tickets fetch",
+        "tickets": [
+          {
+            "id": "6406c342-a0d0-4936-a20c-71b84ad3a011",
+            "title": "is required",
+            "description": "is required",
+            "status": "closed",
+            "userId": "bf174099-620d-4162-af72-562400459dc1",
+            "tag": "tag-572958",
+            "createdAt": "2020-03-19T13:34:02Z",
+            "updatedAt": "2020-03-19T16:26:07Z"
+          }
+        ],
+        "count": 1
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "tickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Ticket"
+          }
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["message", "tickets", "count"]
+    },
+    "Ticket": {
+      "title": "Ticket",
+      "example": {
+        "id": "6406c342-a0d0-4936-a20c-71b84ad3a011",
+        "title": "is required",
+        "description": "is required",
+        "status": "closed",
+        "userId": "bf174099-620d-4162-af72-562400459dc1",
+        "tag": "tag-572958",
+        "createdAt": "2020-03-19T13:34:02Z",
+        "updatedAt": "2020-03-19T16:26:07Z"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "status",
+        "userId",
+        "tag",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "CreateTicketRequest": {
+      "title": "CreateTicketRequest",
+      "example": {
+        "title": "I can't access my deezer app",
+        "description": "Human with all the abilities"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "description"]
+    },
+    "CreateTicket": {
+      "title": "CreateTicket",
+      "example": {
+        "error": false,
+        "code": 201,
+        "message": "success",
+        "data": {
+          "message": "ticket successfully created",
+          "ticket": {
+            "id": "7668c643-83f1-4662-8388-1d62c0bf4f9d",
+            "status": "open",
+            "title": "is required",
+            "description": "is required",
+            "tag": "tag-796052",
+            "userId": "8671e3b1-a377-48fd-a9bd-c5854566138d",
+            "updatedAt": "2020-03-19T10:50:43.457Z",
+            "createdAt": "2020-03-19T10:50:43.457Z"
+          }
+        }
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data8"
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data8": {
+      "title": "Data8",
+      "example": {
+        "message": "ticket successfully created",
+        "ticket": {
+          "id": "7668c643-83f1-4662-8388-1d62c0bf4f9d",
+          "status": "open",
+          "title": "is required",
+          "description": "is required",
+          "tag": "tag-796052",
+          "userId": "8671e3b1-a377-48fd-a9bd-c5854566138d",
+          "updatedAt": "2020-03-19T10:50:43.457Z",
+          "createdAt": "2020-03-19T10:50:43.457Z"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "ticket": {
+          "$ref": "#/definitions/Ticket"
+        }
+      },
+      "required": ["message", "ticket"]
+    },
+    "CloseTicketRequest": {
+      "title": "CloseTicketRequest",
+      "example": {
+        "ticketId": "08ab2bea-1162-4ac1-a4e4-3d57d7f5b083"
+      },
+      "type": "object",
+      "properties": {
+        "ticketId": {
+          "type": "string"
+        }
+      },
+      "required": ["ticketId"]
+    },
+    "CloseTicket": {
+      "title": "CloseTicket",
+      "example": {
+        "error": false,
+        "code": 200,
+        "message": "success",
+        "data": {
+          "message": "ticket closed",
+          "ticket": [1]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data9"
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data9": {
+      "title": "Data9",
+      "example": {
+        "message": "ticket closed",
+        "ticket": [1]
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "ticket": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "required": ["message", "ticket"]
+    },
+    "CreateCommentRequest": {
+      "title": "CreateCommentRequest",
+      "example": {
+        "ticketId": "5f086fb9523e13364115231b",
+        "comment": "shit happens"
+      },
+      "type": "object",
+      "properties": {
+        "ticketId": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        }
+      },
+      "required": ["ticketId", "comment"]
+    },
+    "CreateComment": {
+      "title": "CreateComment",
+      "example": {
+        "error": true,
+        "code": 422,
+        "message": "failure",
+        "data": {
+          "message": "You cannot comment on this ticket unless a support agent does"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data10"
+        }
+      },
+      "required": ["error", "code", "message", "data"]
+    },
+    "Data10": {
+      "title": "Data10",
+      "example": {
+        "message": "You cannot comment on this ticket unless a support agent does"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["message"]
+    }
+  },
+  "tags": [
+    {
+      "name": "Users",
+      "description": "User related operation"
+    },
+    {
+      "name": "Ticket",
+      "description": "Everything about Ticket"
+    },
+    {
+      "name": "Comment",
+      "description": "Everything about Comment"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+[{
+	"_id": {
+		"$oid": "5f0b98dfcc2f99a9aa965c2b"
+	},
+	"role": "admin",
+	"createdAt": {
+		"$date": "2020-07-12T23:10:35.653Z"
+	},
+	"active": true,
+	"firstName": "Raphael",
+	"lastName": "Ajilore",
+	"email": "raphealolams@yahoo.com",
+	"password": "$2b$10$b7LYXjFh7GUWKYgPCHBOSOHlS.rQaNURb9k.dUGHZWDqi9Ptw9Xhy",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"role": "user",
+	"createdAt": {
+		"$date": "2020-07-12T23:10:35.653Z"
+	},
+	"active": true,
+	"firstName": "Raphael",
+	"lastName": "Ajilore",
+	"email": "raphealolams@gmail.com",
+	"password": "$2b$10$IIQSPZb7zVL6u6J2t86wc.JrM9.PsE.jRxzZYTgLJBZESaKlPNcNm",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b9c06a0defcad6040cfdb"
+	},
+	"role": "user",
+	"createdAt": {
+		"$date": "2020-07-12T23:25:53.079Z"
+	},
+	"active": true,
+	"firstName": "Raphael",
+	"lastName": "Ajilore",
+	"email": "fakemail@gmail.com",
+	"password": "$2b$10$WoOOsKAg2o55UNRe666zx.aHfl2arzCYgDnDtNxs4KEvmk.Ic.tau",
+	"__v": 0
+}]
+

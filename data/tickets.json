@@ -1,0 +1,141 @@
+[{
+	"_id": {
+		"$oid": "5f0b990ecc2f99a9aa965c2d"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-878909",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b990fcc2f99a9aa965c2e"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-438643",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b990fcc2f99a9aa965c2f"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-270532",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b9910cc2f99a9aa965c30"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-266036",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b9910cc2f99a9aa965c31"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-765709",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b9911cc2f99a9aa965c32"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-666761",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b9911cc2f99a9aa965c33"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-662045",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b9912cc2f99a9aa965c34"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-890803",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b9913cc2f99a9aa965c35"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-594466",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5f0b9914cc2f99a9aa965c36"
+	},
+	"status": "open",
+	"title": "I can't access my deezer app",
+	"description": "Human with all the abilities",
+	"tag": "tag-574393",
+	"userId": {
+		"$oid": "5f0b98eccc2f99a9aa965c2c"
+	},
+	"comments": [],
+	"__v": 0
+}]
+
