@@ -53,7 +53,7 @@ you need to have the following installed on your machine
 Clone the Repository
 
 ```
-    git clone https://gitlab.com/korapay/careteam-raphael-olamide.git
+    git clone https://github.com/raphealolams/fliq_pay_submission
 ```
 
 Install Dependency
